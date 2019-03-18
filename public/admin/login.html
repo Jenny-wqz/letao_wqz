@@ -7,6 +7,11 @@
     <title>乐淘-Jenny</title>
     <!-- 引入bootstrap 的css -->
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css" />
+    <!-- 引入验证表单的插件 -->
+    <link
+      rel="stylesheet"
+      href="./lib/bootstrap-validator/css/bootstrapValidator.css"
+    />
     <link rel="stylesheet" href="./css/login.css" />
   </head>
   <body>
@@ -19,7 +24,7 @@
           </div>
           <div class="panel-body">
             <!-- 验证的表单 -->
-            <form class="form-horizontal">
+            <form id="form" class="form-horizontal">
               <div class="form-group">
                 <label for="username" class="col-sm-3 control-label"
                   >用户名</label
@@ -31,6 +36,7 @@
                     id="username"
                     placeholder="请输入您的用户名"
                     autocomplete="off"
+                    name="username"
                   />
                 </div>
               </div>
@@ -44,12 +50,13 @@
                     class="form-control"
                     id="password"
                     placeholder="请输入您的密码"
+                    name="password"
                   />
                 </div>
               </div>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-8">
-                  <button class="btn btn-default">重置</button>
+                  <button type="reset" class="btn btn-default">重置</button>
                   <button type="submit" class="btn btn-primary pull-right">
                     登陆
                   </button>
@@ -64,6 +71,7 @@
     <script src="./lib/jquery/jquery.js"></script>
     <!-- 引入bootstrap 的js -->
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
     <script src="./js/login.js"></script>
   </body>
 </html>
