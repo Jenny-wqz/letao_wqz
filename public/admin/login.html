@@ -4,9 +4,66 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>乐淘-Jenny</title>
+    <!-- 引入bootstrap 的css -->
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="./css/login.css" />
   </head>
   <body>
-    登录页
+    <div class="container">
+      <!-- 登陆框 -->
+      <div class="col-md-4 col-md-offset-4">
+        <div class="panel panel-primary mt-150">
+          <div class="panel-heading">
+            <h4 class="text-center">后台管理系统</h4>
+          </div>
+          <div class="panel-body">
+            <!-- 验证的表单 -->
+            <form class="form-horizontal">
+              <div class="form-group">
+                <label for="username" class="col-sm-3 control-label"
+                  >用户名</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    placeholder="请输入您的用户名"
+                    autocomplete="off"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="password" class="col-sm-3 control-label"
+                  >密码</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="请输入您的密码"
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-8">
+                  <button class="btn btn-default">重置</button>
+                  <button type="submit" class="btn btn-primary pull-right">
+                    登陆
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./lib/jquery/jquery.js"></script>
+    <!-- 引入bootstrap 的js -->
+    <script src="./lib/bootstrap/js/bootstrap.js"></script>
+    <script src="./js/login.js"></script>
   </body>
 </html>
