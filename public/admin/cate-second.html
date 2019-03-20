@@ -14,9 +14,7 @@
     />
     <!-- 引入进度条 -->
     <link rel="stylesheet" href="./lib/nprogress/nprogress.css" />
-
     <link rel="stylesheet" href="./css/common.css" />
-    <link rel="stylesheet" href="./css/index.css" />
   </head>
 
   <body>
@@ -31,7 +29,7 @@
       </div>
       <ul class="list">
         <li>
-          <a href="user.html" class="active"
+          <a href="user.html" 
             ><span class="glyphicon glyphicon-user"></span> 用户管理</a
           >
         </li>
@@ -39,9 +37,9 @@
           <a href="javascript:;"
             ><span class="glyphicon glyphicon-list"></span> 分类管理</a
           >
-          <div class="category">
+          <div class="category" style="display:block">
             <a href="cate-first.html">&nbsp;&nbsp;&nbsp;&nbsp;一级分类</a>
-            <a href="cate-second.html">&nbsp;&nbsp;&nbsp;&nbsp;二级分类</a>
+            <a href="cate-second.html" class="active">&nbsp;&nbsp;&nbsp;&nbsp;二级分类</a>
           </div>
         </li>
         <li>
@@ -67,12 +65,6 @@
         <li><a href="index.html" class="active">管理系统</a></li>
         <li><a href="#">首页</a></li>
       </ol>
-
-      <!-- 图表-->
-      <div id="charts">
-        <div class="chart-left"></div>
-        <div class="chart-right"></div>
-      </div>
     </div>
 
     <!-- 模态框 -->
@@ -95,20 +87,20 @@
             <button type="button" class="btn btn-default" data-dismiss="modal">
               取消
             </button>
-            <button type="button" class="btn btn-primary logout">确定</button>
+            <button type="button" class="btn btn-primary">确定</button>
           </div>
         </div>
         <!-- /.modal-content -->
       </div>
       <!-- /.modal-dialog -->
     </div>
+    <!-- /.modal -->
 
     <script src="./lib/jquery/jquery.js"></script>
     <!-- 引入bootstrap 的js -->
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
-    <script src="./lib/echarts/echarts.min.js"></script>
     <script src="./js/common.js"></script>
     <script src="./js/index.js"></script>
   </body>

@@ -1,0 +1,14 @@
+#charts {
+  width: 100%;
+}
+#charts .chart-left,
+#charts .chart-right {
+  width: 548px;
+  height: 400px;
+  /* background-color: pink; */
+  margin-top: 50px;
+  float: left;
+}
+#charts .chart-right {
+  float: right;
+}
