@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -9,78 +8,91 @@
     <!-- 引入bootstrap 的css -->
     <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css" />
     <!-- 引入验证表单的插件 -->
-    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.css" />
+    <link
+      rel="stylesheet"
+      href="./lib/bootstrap-validator/css/bootstrapValidator.css"
+    />
     <!-- 引入进度条 -->
     <link rel="stylesheet" href="./lib/nprogress/nprogress.css" />
     <link rel="stylesheet" href="./css/common.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- 侧边栏 -->
     <div class="lt-aside">
-        <div class="lt-brand"><a href="#">我的管理</a></div>
-        <div class="user">
-            <a href="javascript:;" class="">
-                <img src="./images/default.png" alt="" />
-                <p>超级管理员</p>
-            </a>
-        </div>
-        <ul class="list">
-            <li>
-                <a href="user.html" class="active"><span class="glyphicon glyphicon-user"></span> 用户管理</a>
-            </li>
-            <li>
-                <a href="javascript:;"><span class="glyphicon glyphicon-list"></span> 分类管理</a>
-                <div class="category">
-                    <a href="cate-first.html">&nbsp;&nbsp;&nbsp;&nbsp;一级分类</a>
-                    <a href="cate-second.html">&nbsp;&nbsp;&nbsp;&nbsp;二级分类</a>
-                </div>
-            </li>
-            <li>
-                <a href="product.html"><span class="glyphicon glyphicon-tags"></span> 商品管理</a>
-            </li>
-        </ul>
+      <div class="lt-brand"><a href="#">我的管理</a></div>
+      <div class="user">
+        <a href="javascript:;" class="">
+          <img src="./images/default.png" alt="" />
+          <p>超级管理员</p>
+        </a>
+      </div>
+      <ul class="list">
+        <li>
+          <a href="user.html" class="active"
+            ><span class="glyphicon glyphicon-user"></span> 用户管理</a
+          >
+        </li>
+        <li>
+          <a href="javascript:;"
+            ><span class="glyphicon glyphicon-list"></span> 分类管理</a
+          >
+          <div class="category">
+            <a href="cate-first.html">&nbsp;&nbsp;&nbsp;&nbsp;一级分类</a>
+            <a href="cate-second.html">&nbsp;&nbsp;&nbsp;&nbsp;二级分类</a>
+          </div>
+        </li>
+        <li>
+          <a href="product.html"
+            ><span class="glyphicon glyphicon-tags"></span> 商品管理</a
+          >
+        </li>
+      </ul>
     </div>
     <!-- 内容区域 -->
     <div class="lt-section">
-        <div class="head">
-            <a href="#" id="menu"><span class="glyphicon glyphicon-align-justify pull-left"></span></a>
-            <a href="#" id="retreat"><span class="glyphicon glyphicon-log-out pull-right"></span></a>
-        </div>
+      <div class="head">
+        <a href="#" id="menu"
+          ><span class="glyphicon glyphicon-align-justify pull-left"></span
+        ></a>
+        <a href="#" id="retreat"
+          ><span class="glyphicon glyphicon-log-out pull-right"></span
+        ></a>
+      </div>
 
-        <!-- 面包屑导航 -->
-        <ol class="breadcrumb">
-            <li><a href="index.html" class="active">管理系统</a></li>
-            <li><a href="#">首页</a></li>
-        </ol>
+      <!-- 面包屑导航 -->
+      <ol class="breadcrumb">
+        <li><a href="index.html" class="active">管理系统</a></li>
+        <li><a href="#">首页</a></li>
+      </ol>
     </div>
 
     <!-- 模态框 -->
     <div class="modal fade" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content modal-sm col-md-offset-4">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <h4 class="modal-title">温馨提示</h4>
-                </div>
-                <div class="modal-body">
-                    <p class="danger">
-                        <span class="glyphicon glyphicon-info-sign"></span>
-                        您确定要退出后台管理系统吗?&hellip;
-                    </p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                        取消
-                    </button>
-                    <button type="button" class="btn btn-primary">确定</button>
-                </div>
-            </div>
-            <!-- /.modal-content -->
+      <div class="modal-dialog">
+        <div class="modal-content modal-sm col-md-offset-4">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title">温馨提示</h4>
+          </div>
+          <div class="modal-body">
+            <p class="danger">
+              <span class="glyphicon glyphicon-info-sign"></span>
+              您确定要退出后台管理系统吗?&hellip;
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              取消
+            </button>
+            <button type="button" class="btn btn-primary">确定</button>
+          </div>
         </div>
-        <!-- /.modal-dialog -->
+        <!-- /.modal-content -->
+      </div>
+      <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
 
@@ -91,6 +103,5 @@
     <script src="./lib/nprogress/nprogress.js"></script>
     <script src="./js/common.js"></script>
     <script src="./js/index.js"></script>
-</body>
-
+  </body>
 </html>

@@ -1,5 +1,34 @@
 //实例化图表
 $(function() {
+  // var data1 = [100, 200, 360, 1000, 800, 600];
+  // var data2 = [
+  //   { value: 335, name: "耐克" },
+  //   { value: 310, name: "361度" },
+  //   { value: 234, name: "阿迪" },
+  //   { value: 135, name: "新百伦" },
+  //   { value: 1548, name: "鸿星尔克" }
+  // ];
+
+  var data = {
+    title: "2018年注册人数",
+    list: [
+      { month: "1月", value1: 100 },
+      { month: "2月", value1: 400 },
+      { month: "3月", value1: 800 },
+      { month: "4月", value1: 500 },
+      { month: "5月", value1: 1000 },
+      { month: "6月", value1: 300 }
+    ]
+  };
+
+  var data2 = [
+    { value: 350, name: "耐克" },
+    { value: 450, name: "361度" },
+    { value: 1000, name: "新百伦" },
+    { value: 600, name: "鸿星尔克" },
+    { value: 250, name: "匡威" }
+  ];
+
   // 基于准备好的dom，初始化echarts实例
   var chartLeft = echarts.init(document.querySelector(".chart-left"));
   var chartRight = echarts.init(document.querySelector(".chart-right"));
@@ -7,21 +36,21 @@ $(function() {
   // 指定图表的配置项和数据
   var option1 = {
     title: {
-      text: "2018年注册人数"
+      text: data.title
     },
     tooltip: {},
     legend: {
       data: ["人数"]
     },
     xAxis: {
-      data: ["1月", "2月", "3月", "4月", "5月", "6月"]
+      data: data.list.map(item => item.month)
     },
     yAxis: {},
     series: [
       {
         name: "人数",
         type: "bar",
-        data: [100, 200, 360, 1000, 800, 600]
+        data: data.list.map(item => item.value1)
       }
     ]
   };
@@ -42,7 +71,7 @@ $(function() {
     legend: {
       orient: "vertical",
       left: "left",
-      data: ["耐克", "361度", "阿迪", "新百伦", "鸿星尔克"]
+      data: data2.map(item => item.name)
     },
     series: [
       {
@@ -50,13 +79,7 @@ $(function() {
         type: "pie",
         radius: "55%",
         center: ["50%", "60%"],
-        data: [
-          { value: 335, name: "耐克" },
-          { value: 310, name: "361度" },
-          { value: 234, name: "阿迪" },
-          { value: 135, name: "新百伦" },
-          { value: 1548, name: "鸿星尔克" }
-        ],
+        data: data2,
         itemStyle: {
           emphasis: {
             shadowBlur: 10,
