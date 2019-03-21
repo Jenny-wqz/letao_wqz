@@ -15,6 +15,7 @@
     <!-- 引入进度条 -->
     <link rel="stylesheet" href="./lib/nprogress/nprogress.css" />
     <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/user.css" />
   </head>
 
   <body>
@@ -63,8 +64,37 @@
       <!-- 面包屑导航 -->
       <ol class="breadcrumb">
         <li><a href="index.html" class="active">管理系统</a></li>
-        <li><a href="#">首页</a></li>
+        <li><a href="#">用户管理</a></li>
       </ol>
+
+      <!-- 内容表格区块 -->
+      <table class="table table-bordered table-hover text-center" id="lt-table">
+        <thead>
+          <th class="text-center" width="10%">序号</th>
+          <th class="text-center" width="20%">用户名</th>
+          <th class="text-center" width="30%">手机</th>
+          <th class="text-center" width="20%">状态</th>
+          <th class="text-center" width="20%">操作</th>
+        </thead>
+        <tbody>
+          <!-- 发送ajax请求,获取数据,动态渲染页面 -->
+          <!-- <tr>
+            <td>1</td>
+            <td>富商大贾</td>
+            <td>14236784631</td>
+            <td>正常</td>
+            <td>
+              <button class="btn btn-danger">禁用</button>
+              <button class="btn btn-success">启用</button>
+            </td>
+          </tr> -->
+        </tbody>
+      </table>
+
+      <!-- 分页插件 -->
+      <div class="pull-right">
+        <ul id="lt-paginator"></ul>
+      </div>
     </div>
 
     <!-- 模态框 -->
@@ -80,14 +110,14 @@
           <div class="modal-body">
             <p class="danger">
               <span class="glyphicon glyphicon-info-sign"></span>
-              您确定要退出后台管理系统吗?&hellip;
+              您确定要进行此操作吗?&hellip;
             </p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">
               取消
             </button>
-            <button type="button" class="btn btn-primary">确定</button>
+            <button type="button" class="btn btn-primary confirm">确定</button>
           </div>
         </div>
         <!-- /.modal-content -->
@@ -101,7 +131,31 @@
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
+    <!-- 引入模板引擎,动态渲染页面 -->
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <!-- 引入分页插件 -->
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
     <script src="./js/common.js"></script>
-    <script src="./js/index.js"></script>
+    <script src="./js/user.js"></script>
+
+    <!-- 模板引擎动态渲染页面 -->
+    <script type="text/html" id="tmp">
+      {{each rows v i}}
+          <tr>
+            <td>{{(page-1)*size + i+1}}</td>
+            <td>{{v.username}}</td>
+            <td>{{v.mobile}}</td>
+            <td>{{v.isDelete === 1?'启用':'禁用'}}</td>
+            <!-- 点击按钮的时候,要知道点击的那一条的id -->
+            <td data-id="{{v.id}}" data-page='{{page}}'>
+              {{if v.isDelete === 1 }}
+              <button class="btn btn-danger">禁用</button>
+              {{else if v.isDelete === 0 }}
+              <button class="btn btn-success">启用</button>
+              {{/if}}
+            </td>
+          </tr>
+        {{/each}}
+    </script>
   </body>
 </html>
