@@ -46,6 +46,7 @@ $(function() {
     });
   });
 });
+
 //分页插件
 function setPage(res, render) {
   $("#lt-paginator").bootstrapPaginator({
@@ -75,7 +76,7 @@ function setPage(res, render) {
 
 //       // 渲染分页插件
 //       // setPage(res, render);
-//       
+//
 //     }
 //   });
 // }
