@@ -29,7 +29,7 @@
       </div>
       <ul class="list">
         <li>
-          <a href="user.html" 
+          <a href="user.html"
             ><span class="glyphicon glyphicon-user"></span> 用户管理</a
           >
         </li>
@@ -39,7 +39,9 @@
           >
           <div class="category" style="display:block">
             <a href="cate-first.html">&nbsp;&nbsp;&nbsp;&nbsp;一级分类</a>
-            <a href="cate-second.html" class="active">&nbsp;&nbsp;&nbsp;&nbsp;二级分类</a>
+            <a href="cate-second.html" class="active"
+              >&nbsp;&nbsp;&nbsp;&nbsp;二级分类</a
+            >
           </div>
         </li>
         <li>
@@ -63,31 +65,83 @@
       <!-- 面包屑导航 -->
       <ol class="breadcrumb">
         <li><a href="index.html" class="active">管理系统</a></li>
-        <li><a href="#">首页</a></li>
+        <li><a href="#">分类管理</a></li>
+        <li><a href="#">二级分类</a></li>
       </ol>
+
+      <!-- 内容区块 -->
+      <button class="btn btn-default btn-add">添加分类</button>
+
+      <!-- 内容表格区块 -->
+      <table class="table table-bordered table-hover text-center" id="lt-table">
+        <thead>
+          <th class="text-center" width="20%">序号</th>
+          <th class="text-center">一级分类名</th>
+          <th class="text-center">二级分类名</th>
+          <th class="text-center">二级分类logo</th>
+        </thead>
+        <tbody>
+          <!-- 发送ajax请求,获取数据,动态渲染页面 -->
+        </tbody>
+      </table>
+
+      <!-- 分页插件 -->
+      <div class="pull-right">
+        <ul id="lt-paginator"></ul>
+      </div>
     </div>
 
     <!-- 模态框 -->
     <div class="modal fade" tabindex="-1">
       <div class="modal-dialog">
-        <div class="modal-content modal-sm col-md-offset-4">
+        <div class="modal-content modal-sm ">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">
               <span aria-hidden="true">&times;</span>
             </button>
-            <h4 class="modal-title">温馨提示</h4>
+            <h4 class="modal-title">添加二级分类</h4>
           </div>
           <div class="modal-body">
-            <p class="danger">
-              <span class="glyphicon glyphicon-info-sign"></span>
-              您确定要退出后台管理系统吗?&hellip;
-            </p>
-          </div>
+            <!-- 表单校验 -->
+            <form id="form">
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="btntext">请选择一级分类</span>
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu text-center">
+                  <!-- 模板动态渲染 -->
+                  <!-- <li><a href="#">运动馆</a></li> -->
+                </ul>
+                <!-- 使用一个隐藏域,用来进行表单校验以及存储数据 -->
+                <input type="hidden" name="categoryId">
+              </div>
+              <span class="glyphicon glyphicon-ok pull-right" style="margin-top:5px;color:green;display:none"></span>
+              <div class="form-group">
+                <div>
+                  <input type="text" class="form-control" placeholder="请输入二级分类名称" name="brandName" style="margin-top:15px"/>
+                </div>
+              </div>
+              <!-- 上传图片 -->
+              <div class="form-group">
+                <label for="fileupload" class="btn btn-default">上传图片</label>
+                <!-- 指定接口的地址 data-url
+                      name是参数,也是指定的
+                -->
+                <input type="file" id="fileupload" data-url="/category/addSecondCategoryPic" style="display:none" name="pic1" />
+              </div>
+              <!-- 图片 -->
+              <div class="form-group">
+                <img src="./images/none.png" alt="" width="80">
+                <input type="hidden" name="brandLogo">
+              </div>
+              </div>
+            </form>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">
               取消
             </button>
-            <button type="button" class="btn btn-primary">确定</button>
+            <button type="button" class="btn btn-primary confirm">添加</button>
           </div>
         </div>
         <!-- /.modal-content -->
@@ -101,7 +155,33 @@
     <script src="./lib/bootstrap/js/bootstrap.js"></script>
     <script src="./lib/bootstrap-validator/js/bootstrapValidator.js"></script>
     <script src="./lib/nprogress/nprogress.js"></script>
+    <!-- 引入模板引擎,动态渲染页面 -->
+    <script src="./lib/artTemplate/template-web.js"></script>
+    <!-- 引入分页插件 -->
+    <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+
     <script src="./js/common.js"></script>
-    <script src="./js/index.js"></script>
+    <script src="./js/cate-second.js"></script>
+
+    <!-- 模板引擎动态渲染页面 -->
+    <script type="text/html" id="tmp">
+      {{each rows v i}}
+          <tr>
+            <td>{{(page-1)*size + i+1}}</td>
+            <td>{{v.categoryName}}</td>
+            <td>{{v.brandName}}</td>
+            <td><img src="{{v.brandLogo}}" alt="" width="60"></td>
+
+          </tr>
+        {{/each}}
+    </script>
+
+    <!-- 模板引擎渲染一级分类 -->
+    <script type="text/html" id="tmplist">
+      {{each rows v i}}
+      <!-- 存id是为了点击的时候获取点击的那一条的id -->
+        <li><a href="javascript:;" data-id="{{v.id}}">{{v.categoryName}}</a></li>
+      {{/each}}
+    </script>
   </body>
 </html>

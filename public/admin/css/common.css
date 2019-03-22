@@ -134,3 +134,8 @@ body.master {
 .modal-content .danger {
   color: #a94442;
 }
+
+/* 表格垂直居中 */
+#lt-table tbody tr td {
+  vertical-align: middle;
+}
