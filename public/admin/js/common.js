@@ -9,7 +9,7 @@ $(function() {
   $(document).ajaxStop(function() {
     setTimeout(function() {
       NProgress.done();
-    }, 3000);
+    }, 300);
   });
 
   //点击一级菜单的时候让二级菜单显示
@@ -60,23 +60,3 @@ function setPage(res, render) {
     }
   });
 }
-
-// // 渲染页面
-// function render(p) {
-//   $.ajax({
-//     url: "/user/queryUser",
-//     type: "get",
-//     data: {
-//       page: p,
-//       pageSize: 5
-//     },
-//     success: function(res) {
-//       console.log(res);
-//       $("#lt-table tbody").html(template("tmp", res));
-
-//       // 渲染分页插件
-//       // setPage(res, render);
-//
-//     }
-//   });
-// }

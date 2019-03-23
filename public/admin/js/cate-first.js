@@ -8,30 +8,55 @@ $(function() {
     $(".modal").modal("show");
   });
 
-  //点击模态框的添加按钮,获取文本框中的内容,发送ajax请求
-  $(".confirm").on("click", function() {
-    var categoryName = $('[class="form-control"]')
-      .val()
-      .trim();
-    $('[class="form-control"]').val("");
-    if (categoryName === "") {
-      return;
+  //使用表单校验插件
+  $("#form").bootstrapValidator({
+    //2. 指定校验时的图标显示，默认是bootstrap风格
+    feedbackIcons: {
+      valid: "glyphicon glyphicon-ok",
+      invalid: "glyphicon glyphicon-remove",
+      validating: "glyphicon glyphicon-refresh"
+    },
+
+    //3. 指定校验字段
+    fields: {
+      //校验用户名，对应name表单的name属性
+      categoryName: {
+        validators: {
+          //不能为空
+          notEmpty: {
+            message: "二级分类名不能为空"
+          }
+        }
+      }
     }
+  });
+
+  $("#form").on("success.form.bv", function(e) {
+    e.preventDefault();
+
+    // 发送ajax请求,关闭模态框,重置表单
+    var categoryName = $('[name="categoryName"]').val();
+
     $.ajax({
       url: "/category/addTopCategory",
       type: "post",
       data: {
-        categoryName
+        categoryName: categoryName
       },
       success: function(res) {
         if (res.success) {
-          //关闭模态框,动态渲染数据
+          // //关闭模态框,动态渲染数据
           $(".modal").modal("hide");
+          //重置表单
+          $("#form")
+            .data("bootstrapValidator")
+            .resetForm(true);
           render(1);
         }
       }
     });
   });
+
 });
 
 function render(p) {
