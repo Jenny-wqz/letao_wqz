@@ -129,7 +129,7 @@ body.master {
 
 /* 模态框 */
 .modal-content {
-  margin: 100px auto;
+  margin: 20px auto;
 }
 .modal-content .danger {
   color: #a94442;
